@@ -26,18 +26,19 @@ Capitalized words are considered distinct::
 def word_count(phrase):
     """Count words in a sentence, and print in ascending order."""
 
-    word_count_dict = {}
-    counts = []
+    word_count = {}
 
-    for word in phrase.split(" "):
-        word_count_dict[word] = word_count_dict.get(word, 0) + 1
+    for word in phrase.split():
+        word_count[word] = word_count.get(word, 0) + 1
 
-    for word, count in word_count_dict.items():
-        counts.append((count, word))
-        counts.sort()
+    counts = [(count, word) for word, count in word_count.items()]
+    counts.sort()
 
     for count, word in counts:
         print(f'{word}: {count}')
+
+
+
 
 if __name__ == '__main__':
     import doctest
